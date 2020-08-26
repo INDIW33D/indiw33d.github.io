@@ -5,7 +5,7 @@ const mobileText = document.querySelector(".mobile");
 
 const md = new MobileDetect(window.navigator.userAgent);
 
-if(md.is("phone")) {
+if(md.phone() != null) {
     mobileText.style.display = "block";
 } else {
     closedCard.style.display = "block";
