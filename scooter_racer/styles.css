@@ -1,14 +1,14 @@
 .body {
-/*     display: flex; */
-/*     flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     height: 100vh;
 }
 
 .scooter {
     width: 300px;
-/*     margin: auto; */
+    margin: auto;
 }
 
 .chiMai {
-/*      margin: auto; */
+     margin: auto;
 }
