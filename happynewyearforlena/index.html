@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лена, с Новым годом!</title>
+</head>
+<body class="body">
+    <canvas id="fireworks-canvas" class="fireworks"></canvas>
+    <div class="congratulation">
+        Лена, с Новым годом!
+    </div>
+    <script src="js/fireworks.js"></script>
+    <script>
+        let stopFireworkFunc = undefined;
+
+        function draw(ctx) {
+        ctx.canvas.width  = window.innerWidth;
+        ctx.canvas.height = window.innerHeight;
+
+        var firework = JS_FIREWORKS.Fireworks({
+                id : 'fireworks-canvas',
+                hue : 120,
+                particleCount : 50,
+                delay : 0,
+                minDelay : 20,
+                maxDelay : 40,
+                boundaries : {
+                    top: 50,
+                    bottom: window.innerHeight - 50,
+                    left: 50,
+                    right: window.innerWidth - 50,
+                },
+                fireworkSpeed : 2,
+                fireworkAcceleration : 1.05,
+                particleFriction : .95,
+                particleGravity : 1.5
+            });
+            firework.start();
+
+            return firework.stop;
+        }
+
+        window.onload = function () {
+            const canvas = document.getElementById("fireworks-canvas");
+            stopFireworkFunc = draw(canvas.getContext('2d'));
+        };
+
+        window.onresize = function () {
+            if (!stopFireworkFunc) {
+                return;
+            }
+            
+            stopFireworkFunc();
+            const canvas = document.getElementById("fireworks-canvas");
+            stopFireworkFunc = draw(canvas.getContext('2d'));
+        }
+    </script>
+</body>
+</html>
