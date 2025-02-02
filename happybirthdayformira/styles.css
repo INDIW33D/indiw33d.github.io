@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Duality";
+  src: url("Duality.otf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  overflow: hidden;
+}
+
+.fireworks {
+  background: #000;
+  width: 100vw;
+  height: 100vh;
+}
+
+.congratulation {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 150px;
+  color: #FFF;
+  font: 4rem "Duality";
+
+  background: linear-gradient(90deg, #e933ff, #ffb400, #ff3333, #334dff, #e933ff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textflow 5s linear infinite;
+}
+
+@keyframes textflow {
+  from {background-position: 0% center}         
+  to {background-position: 200% center}
+}
